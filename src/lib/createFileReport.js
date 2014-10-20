@@ -1,7 +1,8 @@
 var Promise = require('bluebird'),
     cr = require('escomplex'),
     treeWalker = require('escomplex-ast-moz'),
-    esprima = require('esprima');
+    esprima = require('esprima'),
+    reactTools = require('react-tools');
 
 /**
  * Builds final complexity report of
@@ -11,12 +12,16 @@ var Promise = require('bluebird'),
  * @param {String} 'fileData'   The file content stringified
  * @returns {Promise}           The fulfilled promise returns the report {Object}
  */
- 
+
 module.exports = function(fileRef, fileData){
 
   return new Promise(function(resolve, reject){
 
     var report;
+
+    if ((/\.(jsx)$/i).test(fileRef)) {
+      fileData = reactTools.transform(fileData);
+    }
 
     try {
       report = cr.analyse( esprima.parse(fileData, {loc : true}),  treeWalker);
@@ -39,5 +44,5 @@ module.exports = function(fileRef, fileData){
     });
 
   });
-    
+
 };

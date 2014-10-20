@@ -1,6 +1,6 @@
 {
-  "name": "jscomplexity",
-  "description": "JS cyclomatic complexity report generator",
+  "name": "jsxcomplexity",
+  "description": "JSX cyclomatic complexity report generator",
   "license": "MIT",
   "homepage": "https://github.com/slyg/jscomplexity",
   "repository": {
@@ -10,7 +10,7 @@
   "version": "0.1.2",
   "preferGlobal": "true",
   "bin": {
-    "jscr": "./bin/jscr.js"
+    "jsxcr": "./bin/jscr.js"
   },
   "main": "./index",
   "dependencies": {
@@ -24,7 +24,8 @@
     "commander": "~2.1.0",
     "lodash": "^2.4.1",
     "cli-table": "^0.3.0",
-    "colors": "^0.6.2"
+    "colors": "^0.6.2",
+    "react-tools": "^0.11.2"
   },
   "devDependencies": {
     "mocha": "~1.17.0",
@@ -34,7 +35,8 @@
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-istanbul-coverage": "0.0.2",
     "grunt-istanbul": "~0.2.4",
-    "grunt-exec": "~0.4.3"
+    "grunt-exec": "~0.4.3",
+    "react-tools": "^0.11.2"
   },
   "scripts": {
     "test": "mocha",
